@@ -64,7 +64,7 @@ router.post('/', upload.single('file'), async(req, res,next) => {
         let secondChanceItem = req.body;
 
         await lastItemQuery.forEach(item => {
-            secondChanceItem.id = parseInt(item.id) + 1;
+            secondChanceItem.id = (parseInt(item.id) + 1).toString();
         });
         const date_added = Math.floor(new Date().getTime() / 1000);
         secondChanceItem.date_added = date_added
